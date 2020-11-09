@@ -6,7 +6,6 @@ console.log('Starting discord bot');
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    //775398745369083935
 });
 client.login(process.env.TOKEN);
 
