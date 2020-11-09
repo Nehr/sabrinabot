@@ -16,14 +16,24 @@ function dieRoll(max) {
 }
 
 function gotMessage(msg) {
-    // console.log(msg);
-    if (msg.content == 'Meow?') {
+    console.log(`\n${msg.author.username} ${msg.channel.name != undefined ? `<${msg.channel.name}>` : '' }: ${msg.content}`);
+    
+    if (msg.content.startsWith("!help")) {
+        //msg.channel.send('Ring Poolia!');
+        msg.channel.send('Ring Poolia! Eller så kan du testa något av följande:\n!roll 1d10 - detta för att rulla tärningar, hur många och vilka du vill\n!add 10+10 - addition, om du inte skulle klara av det själv\n!sub 20-10 - subtraktion, om du behöver lite hjälp med det');
+    }
+    
+    if (msg.channel.type == 'dm' && msg.author.username !== 'SabrinaBot') {
+        msg.channel.send('Mew mew mew, mew mew meeew!');
+    }
+
+    if (msg.content.toLowerCase() == 'meow?') {
         msg.channel.send('Meow! :smile_cat:');
     }
-    if (msg.content == 'Meow!') {
+    if (msg.content.toLowerCase() == 'meow!') {
         msg.channel.send('Meow? :cat:');
     }
-    if (msg.content == 'Meow!?' || msg.content == 'Meow?!') {
+    if (msg.content.toLowerCase() == 'meow!?' || msg.content == 'meow?!') {
         msg.channel.send('Meow~ :scream_cat:');
     }
     if (msg.content.startsWith("!roll ")) {
